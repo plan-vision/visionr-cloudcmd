@@ -34,7 +34,6 @@
     "webpack-cli": "3.3.12"
   },
   "files": [
-    "index.html",
     "dist",
     "build/cloudcmd",
     "package.json"

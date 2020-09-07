@@ -1,5 +1,5 @@
-var io          = require('socket.io');console.log("DONE4");
-var cloudcmd    = require('cloudcmd');console.log("DONE6");
+var io          = require('socket.io');
+var cloudcmd    = require('cloudcmd');
 
 var server;
 
