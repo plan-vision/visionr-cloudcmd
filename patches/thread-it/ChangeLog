@@ -1,0 +1,47 @@
+2020.02.25, v1.1.3
+
+feature:
+- (package) eslint-plugin-node v11.0.0
+- (package) nodemon v2.0.2
+- (package) putout v7.13.4
+- (package) madrun v5.4.4
+- (package) try-catch v3.0.0
+- (package) try-to-catch v3.0.0
+- (package) nyc v15.0.0
+
+
+2019.08.23, v1.1.2
+
+fix:
+- (thread-it) free worker handling
+
+
+2019.08.23, v1.1.1
+
+fix:
+- (thread-it) init: when workers exists - do nothing
+
+
+2019.08.16, v1.1.0
+
+feature:
+- (thread-it) add ability to set workers count with help of THREAD_IT_COUNT env variable
+
+
+2019.08.16, v1.0.3
+
+fix:
+- (thread-it) check for workers on call
+
+
+2019.08.16, v1.0.2
+
+fix:
+- (package) try-to-catch: dependencies -> devDependencies
+
+
+2019.08.16, v1.0.1
+
+fix:
+- (package) webworker -> thread worker
+

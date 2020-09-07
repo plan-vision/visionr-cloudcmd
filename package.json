@@ -1,0 +1,42 @@
+{
+  "name": "visionr-cloudcmd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "cd patches && cp -R * ../node_modules & cd ..",
+    "start": "node ./dist/server.bundle.js",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "got": "^11.5.1",
+    "onezip": "^4.2.1",
+    "socket.io": "^2.3.0",
+    "squad": "^3.0.0"
+  },
+  "devDependencies": {
+    "cloudcmd": "14.6.0",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "acorn-stage3": "^3.0.0",
+    "buble": "^0.20.0",
+    "bufferutil": "^4.0.1",
+    "rendy": "^3.0.1",
+    "tenko": "^1.1.0",
+    "utf-8-validate": "^5.0.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/polyfill": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "buble-loader": "^0.5.1",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12"
+  },
+  "files": [
+    "index.html",
+    "dist",
+    "build/cloudcmd",
+    "package.json"
+  ]
+}
