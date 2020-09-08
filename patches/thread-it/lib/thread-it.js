@@ -36,7 +36,6 @@ const run = promisify((name, args, workerItem, callback) => {
 let workers = [];
 
 module.exports = (name, options) => {
-    console.log("DOOOOOOOOO "+name+" | "+workersDisabled());
     if (workersDisabled()) {
         var fn;
         switch (name.split("\\").join("/")) {

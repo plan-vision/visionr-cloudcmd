@@ -297,5 +297,3 @@ function setSW(req, res, next) {
 
     next();
 }
-
-console.log("HERE!!!!!!!!!!!!!EEE");

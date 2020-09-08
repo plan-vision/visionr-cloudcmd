@@ -8,7 +8,6 @@ const pullout = require('pullout');
 const ponse = require('ponse');
 const threadIt = require('thread-it');
 
-console.log('THREAD IT : '+join('cloudcmd/server/markdown/', 'worker'));
 const parse = threadIt(join('cloudcmd/server/markdown/', 'worker'));
 
 const root = require('../root');
