@@ -7,31 +7,56 @@ global.vrcloudcmd={
   attachToExpress : function(a,s,e,c) {
     var app = a;
     server = s;
+    var socket1;
+    
+    // for (var i=0;i<c.length;i++) {
+    //   if (!i) {
+    //     socket1 = io.listen(server, {
+    //       path: `${c[i].name}/socket.io`
+    //     });
+    //     c[i].editor = 'deepword';
+    //     app.use('/fs/'+c[i].name, cloudcmd({
+    //       config: c[i],
+    //       socket: socket1,
+    //     }));
+    //   }      
+    // }
 
-    var prefix = '/files';
+    var prefix = '/fs';
     const {createConfigManager} = cloudcmd;
-    socket = io.listen(server, {
-      path: `${prefix}/socket.io`
-    });
     var configManager = createConfigManager();
-    configManager('name', 'A');
 
     var router = e.Router();
 
-    app.get('/files/*' ,function (req, res, next) {
-      if (req.path.includes('/files/') && !req.headers.referer) {
-        var p = req.path.replace('/files/', '');
+    app.get('/fs/*' ,function (req, res, next) {
+      console.log(req.path);
+      req.on('error', function () {
+        console.log("error");
+       }).on('end', function () {
+        console.log("app.use on end");
+      });
+      if (req.path.includes('/fs/') && !req.headers.referer && !req.path.includes('.js.map') && !req.path.includes('/fs/VisionR-1/socket.io/')) {
+        var p = req.path.replace('/fs/', '');
         for (var i=0;i<c.length;i++) {
           if (p.includes(c[i].name)) {
+            socket1 = io.listen(server);
+            // socket1 = io.listen(server, {
+            //   path: `${c[i].name}/socket.io`
+            // });
+            configManager('name', c[i].name);
+            c[i].editor = 'deepword';
             router.use(req.path, cloudcmd({
-              socket: socket,
+              socket: socket1,
               config: c[i],
-              configManager: configManager,
+              configManager: configManager
             }));
           }
         }
       }
       router(req, res, next);
-    })
+    });
+    app.put('/fs/*' ,function (req, res, next) {
+      router(req, res, next);
+    });
   } 
 }
